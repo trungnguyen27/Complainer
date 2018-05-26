@@ -1,0 +1,58 @@
+﻿<Page
+    x:Class="ComplainerProd.NavigationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ComplainerProd.Models"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    x:Name="NavigationP">
+
+    <Page.Resources>
+        <DataTemplate x:Key="DefaultTemplate" x:DataType="local:MenuItem">
+            <Grid Width="240" Height="48">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <SymbolIcon Grid.Column="0" Symbol="{x:Bind Icon, Mode=OneWay}" Foreground="White" />
+                <TextBlock Grid.Column="1" Text="{x:Bind Name, Mode=OneWay}" FontSize="16" VerticalAlignment="Center" Foreground="White" />
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="Narrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="hamburgerMenuControl.DisplayMode" Value="Overlay"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Wide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="700"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="hamburgerMenuControl.DisplayMode" Value="CompactInline"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <controls:HamburgerMenu x:Name="hamburgerMenuControl"
+                                Foreground="White"
+                                ItemClick="OnMenuItemClick"
+                                OptionsItemClick="hamburgerMenuControl_OptionsItemClick"
+                                ItemTemplate="{StaticResource DefaultTemplate}"
+                                OptionsItemTemplate="{StaticResource DefaultTemplate}">
+            <controls:HamburgerMenu.PaneBackground>
+                <SolidColorBrush Color="Gray"/>
+            </controls:HamburgerMenu.PaneBackground>
+            <Frame x:Name="contentFrame"  Foreground="Black"/>
+        </controls:HamburgerMenu>
+    </Grid>
+</Page>

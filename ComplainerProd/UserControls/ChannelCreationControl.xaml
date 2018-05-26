@@ -1,0 +1,171 @@
+﻿<UserControl
+    x:Class="ComplainerProd.UserControls.ChannelCreationControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ComplainerProd.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="600"
+    d:DesignWidth="400"
+    x:Name="ChannelCreateUC">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Tạo kênh phản hồi"
+                       FontWeight="Medium"
+                       Foreground="{StaticResource SystemControlForegroundAccentBrush}"
+                       VerticalAlignment="Center"
+                       Margin="10"
+                       FontSize="25"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Vertical">
+            <StackPanel Orientation="Vertical"
+                        Margin="10,0,10,0">
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            Margin="0,10,10,0">
+                    <TextBlock Text="&#xE8AC;"
+                                FontFamily="Segoe MDL2 Assets"
+                                VerticalAlignment="Center"
+                                Margin="0,0,10,0"/>
+                    <TextBlock Text="Tên *"
+                               VerticalAlignment="Center"
+                               FontSize="15"/>
+                </StackPanel>
+                <TextBox Name="NameTBox"
+                         PlaceholderText="Văn phòng, doanh nghiệp tên là..."
+                             Grid.Column="1"
+                             Text="{Binding Name, Mode=TwoWay,ElementName=ChannelCreateUC}"
+                             BorderThickness="1"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical"
+                        Margin="10,0,10,0">
+                <StackPanel Orientation="Horizontal"
+                             Margin="0,10,10,0">
+                    <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center">
+                        <TextBlock Text="&#xE943;"
+                                FontFamily="Segoe MDL2 Assets"
+                                VerticalAlignment="Center"
+                                Margin="0,0,10,0"/>
+                        <TextBlock Text="Access Code *"
+                               FontSize="15"
+                               VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <Button x:Name="MoreInfoButton"
+                            Click="MoreInfoButton_Click"
+                            Background="Transparent"
+                            Foreground="{StaticResource SystemControlForegroundAccentBrush}"
+                            FontSize="10"
+                            VerticalAlignment="Bottom"
+                            Width="Auto">
+                        <Button.Content>
+                            <TextBlock Text="&#xE946;"
+                                            FontFamily="Segoe MDL2 Assets"
+                                            VerticalAlignment="Center"
+                                            Margin="2"/>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="AcessCodeTBox"
+                             PlaceholderText="Mã truy cập nhanh là..."
+                             Text="{Binding AccessCode, Mode=TwoWay,ElementName=ChannelCreateUC}"
+                             BorderThickness="1"/>
+                    <Button x:Name="CheckButton"
+                            Background="Transparent"
+                            Foreground="Green"
+                            Content="Kiểm tra"
+                            Grid.Column="1"
+                            Margin="10,0,0,0"/>
+                </Grid>
+                <TextBlock x:Name="StatusTextBlock"/>
+            </StackPanel>
+            <Button x:Name="AddInfoButton"
+                    Content="+ thêm thông tin"
+                    Click="AddInfoButton_Click"
+                    Background="Transparent"
+                    Margin="5,0,0,0"
+                    FontSize="12"
+                    Foreground="{StaticResource SystemControlForegroundAccentBrush}"/>
+            <StackPanel x:Name="MoreInfoStackPanel"
+                        Visibility="Collapsed">
+                <StackPanel Orientation="Vertical"
+                        Margin="10,0,10,0">
+                    <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            Margin="0,10,10,0">
+                        <TextBlock Text="&#xE81D;"
+                                FontFamily="Segoe MDL2 Assets"
+                                VerticalAlignment="Center"
+                                Margin="0,0,10,0"/>
+                        <TextBlock Text="Address"
+                           FontSize="15"/>
+                    </StackPanel>
+                    <TextBox Name="AddressTBox"
+                             PlaceholderText="Vị trí văn phòng doanh nghiệp ở đâu?"
+                         Text="{Binding Location, Mode=TwoWay,ElementName=ChannelCreateUC}"
+                         BorderThickness="1"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical"
+                        Margin="10,0,10,0">
+                    <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            Margin="0,10,10,0">
+                        <TextBlock Text="&#xE13A;"
+                                FontFamily="Segoe MDL2 Assets"
+                                VerticalAlignment="Center"
+                                Margin="0,0,10,0"/>
+                        <TextBlock Text="Phone"
+                                   FontSize="15"/>
+                    </StackPanel>
+                    <TextBox Name="PhoneTextBox"
+                             PlaceholderText="Liên lạc qua số nào ta?"
+                         Text="{Binding Phone, Mode=TwoWay,ElementName=ChannelCreateUC}"
+                         BorderThickness="1"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical"
+                        Margin="10,0,10,0">
+                    <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            Margin="0,10,10,0">
+                        <TextBlock Text="&#xE774;"
+                                FontFamily="Segoe MDL2 Assets"
+                                VerticalAlignment="Center"
+                                Margin="0,0,10,0"/>
+                        <TextBlock Text="Website"
+                                    FontSize="15"/>
+                    </StackPanel>
+                    <TextBox Name="Website"
+                             PlaceholderText="và website là gì nhỉ?"
+                         Text="{Binding Web, Mode=TwoWay,ElementName=ChannelCreateUC}"
+                         BorderThickness="1"/>
+                </StackPanel>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="CreateButton"
+                        Foreground="{StaticResource SystemControlForegroundAltHighBrush}"
+                        Background="{StaticResource SystemControlBackgroundAccentBrush}"
+                    Content="Tạo"
+                    HorizontalAlignment="Center"
+                    Margin="10"
+                    Command="{Binding CreateButtonCommand, Mode=TwoWay}"/>
+                <Button x:Name="CancelButton" 
+                    Content="Hủy"
+                    HorizontalAlignment="Center"
+                    Margin="10"
+                   />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

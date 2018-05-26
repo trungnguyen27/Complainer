@@ -1,0 +1,6 @@
+MainPackage=F:\Project\Visual\Complainer\ComplainerProduction\ComplainerProd\ComplainerProd\bin\ARM\Release\Upload\ComplainerProd_1.1.38.0_ARM.appx
+SymbolPackage=F:\Project\Visual\Complainer\ComplainerProduction\ComplainerProd\ComplainerProd\bin\ARM\Release\Upload\ComplainerProd_1.1.38.0\ComplainerProd_1.1.38.0_ARM.appxsym
+ResourcePack=F:\Project\Visual\Complainer\ComplainerProduction\ComplainerProd\ComplainerProd\_scale-100.appx
+ResourcePack=F:\Project\Visual\Complainer\ComplainerProduction\ComplainerProd\ComplainerProd\_scale-125.appx
+ResourcePack=F:\Project\Visual\Complainer\ComplainerProduction\ComplainerProd\ComplainerProd\_scale-150.appx
+ResourcePack=F:\Project\Visual\Complainer\ComplainerProduction\ComplainerProd\ComplainerProd\_scale-400.appx

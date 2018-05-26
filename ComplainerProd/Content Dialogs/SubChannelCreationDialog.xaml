@@ -1,0 +1,101 @@
+﻿<ContentDialog
+    x:Class="ComplainerProd.Content_Dialogs.SubChannelCreationDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ComplainerProd.DataObject"
+    xmlns:models="using:ComplainerProd.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="THÊM KÊNH PHỤ"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <ContentDialog.Resources>
+        <local:BoolToVisibilityConverter x:Key="BoolToVisibleConverter"/>
+    </ContentDialog.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Danh sách kênh phụ"
+                           VerticalAlignment="Center"/>
+                <ToggleButton x:Name="EditButton"
+                              Margin="5"
+                            Background="Transparent"
+                            Foreground="{StaticResource SystemControlForegroundAccentBrush}"
+                            Visibility="{Binding Count, Mode=OneWay, Converter={StaticResource BoolToVisibleConverter}}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="&#xE70F;"
+                                    FontFamily="Segoe MDL2 Assets"
+                                    VerticalAlignment="Center"/>
+                    </StackPanel>
+                </ToggleButton>
+                <Button x:Name="DeleteButton"
+                                Background="Transparent"
+                                Foreground="Red"
+                              IsEnabled="False"
+                                Visibility="{Binding ElementName=EditButton, Path= IsChecked, Mode=OneWay, Converter={StaticResource BoolToVisibleConverter}}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="&#xE74D;"
+                                    FontFamily="Segoe MDL2 Assets"
+                                    VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+           
+            <Grid Background="Gray"
+                  Grid.Row="1">
+                <ListView x:Name="SubChannelListView"
+                          ItemsSource="{x:Bind Departments, Mode=OneWay}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Department">
+                            <TextBlock Text="{x:Bind DepartmentName}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <TextBlock Text="Tên kênh phụ"
+                           Margin="0,5,5,5"/>
+                <TextBox x:Name="SubChannelNameTB"
+                         BorderThickness="1"
+                         TextChanged="SubChannelName_TextChanged"/>
+            </StackPanel>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="AddButton"
+                        IsEnabled="False"
+                        Content="Thêm"
+                        HorizontalAlignment="Stretch"
+                        Click="AddButton_Click"
+                        Background="{StaticResource SystemControlBackgroundAccentBrush}"
+                        Foreground="{StaticResource SystemControlForegroundAltHighBrush}"
+                        Margin="0,20,5,0"/>
+                <Button x:Name="CancelButton" Content="Hủy"
+                        Grid.Column="1"
+                        Click="CancelButton_Click"
+                        HorizontalAlignment="Stretch"
+                        Margin="5,20,0,0"/>
+            </Grid>
+        </Grid>
+      
+    </Grid>
+</ContentDialog>

@@ -1,0 +1,2 @@
+MainPackage=F:\Project\Visual\Complainer\ComplainerProduction\ComplainerProd\ComplainerProd\bin\x86\Release\Upload\ComplainerProd_1.1.38.0_x86.appx
+SymbolPackage=F:\Project\Visual\Complainer\ComplainerProduction\ComplainerProd\ComplainerProd\bin\x86\Release\Upload\ComplainerProd_1.1.38.0\ComplainerProd_1.1.38.0_x86.appxsym

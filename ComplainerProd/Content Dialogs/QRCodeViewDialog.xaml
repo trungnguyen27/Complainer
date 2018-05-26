@@ -1,0 +1,71 @@
+﻿<ContentDialog
+    x:Class="ComplainerProd.Content_Dialogs.QRCodeViewDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ComplainerProd.Content_Dialogs"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    PrimaryButtonText="Chia sẻ"
+    SecondaryButtonText="Thoát"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
+    x:Name="QRDialog"
+    >
+
+    <Grid x:Name="QRGrid"
+          >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Grid Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="6*"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="1" Source="ms-appx:///Assets\Graphics\Complainer_Logo.png"/>
+        </Grid>
+        <Grid Grid.Row="1" 
+             >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Image x:Name="QRCode"/>
+            <Grid Grid.Row="1"  Background="{StaticResource SystemControlForegroundAccentBrush}"
+                  Margin="0,0,0,1">
+                <TextBlock Text="{Binding Channel.ChannelName, Mode=OneWay, ElementName=QRDialog}"
+                       FontSize="25"
+                       VerticalAlignment="Center"
+                       Grid.Row="1"
+                       FontWeight="Medium"
+                       Margin="10,0,0,0"
+                       Foreground="{StaticResource SystemControlForegroundAltHighBrush}"/>
+            </Grid>
+
+            <Grid Grid.Row="2"  Background="{StaticResource SystemControlBackgroundAccentBrush}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                       Text="MÃ KÊNH"
+                       FontSize="20"
+                       Margin="10,20,10,20"
+                       Foreground="White"
+                       FontWeight="Bold"
+                       VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="1"
+                           FontSize="50"
+                           Margin="10,20,10,20"
+                           Foreground="White"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Text="{Binding Channel.AccessCode, Mode=OneWay, ElementName=QRDialog}"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentDialog>
